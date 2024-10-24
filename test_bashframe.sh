@@ -353,6 +353,7 @@ test_download() {
     assert_false "DOWNLOAD 'invalid-url' '$test_output' 2>/dev/null" "DOWNLOAD should fail with invalid URL" "invalid-url"
 }
 
+
 # Enhanced run_tests function with better error handling
 run_tests() {
     # Start timer
@@ -382,6 +383,7 @@ run_tests() {
     test_logging
     test_error_handling
     test_download
+    test_check_port
     
     # Cleanup and print summary
     cleanup
@@ -389,21 +391,5 @@ run_tests() {
     
     return $FAILED_TESTS
 }
-
-
-
-# Enhanced cleanup function
-cleanup() {
-    # Only cleanup if TEST_DIR exists and is a directory
-    if [[ -d "${TEST_DIR:-}" ]]; then
-        rm -rf "$TEST_DIR"
-    fi
-    
-    # Clean up log files
-    if [[ -d "/tmp/log" ]]; then
-        rm -f "/tmp/log/$SCRIPT.log"
-    fi
-}
-
 
 run_tests
