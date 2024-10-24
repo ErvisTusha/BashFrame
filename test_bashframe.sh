@@ -112,7 +112,12 @@ test_user_interaction() {
     # Test ASK_USER with 'yes'
     echo "y" | assert_true "ASK_USER 'Test question?'" "ASK_USER for 'y'" "y"
     echo "Y" | assert_true "ASK_USER 'Test question?'" "ASK_USER for 'Y'" "Y"
-    echo "" | assert_true "ASK_USER 'Test question?'" "ASK_USER for empty (default)" "default"
+
+    # Test ASK_USER with empty input
+    echo "" | assert_false "ASK_USER 'Test question?'" "ASK_USER for empty input" ""
+    
+    # Test ASK_USER with invalid input
+    echo "invalid" | assert_false "ASK_USER 'Test question?' 3" "ASK_USER for invalid input with limited attempts" "invalid"
     
     # Test ASK_USER with 'no'
     echo "n" | assert_false "ASK_USER 'Test question?'" "ASK_USER for 'n'" "n"
