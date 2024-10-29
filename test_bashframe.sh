@@ -290,8 +290,10 @@ test_download() {
 
     # Test with one argument
     ASSERT_TRUE "DOWNLOAD '$test_url' 2>/dev/null" "DOWNLOAD should succeed with one argument" "one argument"
+    rm -f "test.txt"
     # Test with two arguments
     ASSERT_TRUE "DOWNLOAD '$test_url' '$test_output' 2>/dev/null" "DOWNLOAD should succeed with two arguments" "two arguments"
+    rm -f "$test_output"
     # Test with invalid URL
     ASSERT_FALSE "DOWNLOAD 'invalid-url' '$test_output' 2>/dev/null" "DOWNLOAD should fail with invalid URL" "invalid-url"
 
