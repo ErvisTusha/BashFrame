@@ -1,6 +1,6 @@
 # BashFrame
 
-[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](https://github.com/ErvisTusha/BashFrame)
+[![Version](https://img.shields.io/badge/version-1.5.1-blue.svg)](https://github.com/ErvisTusha/BashFrame)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Bash](https://img.shields.io/badge/bash-5.0%2B-orange.svg)](https://www.gnu.org/software/bash/)
 
